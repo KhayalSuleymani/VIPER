@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+enum PersistenceError : Error {
+    case managedObjectContextNotFound
+    case couldNotSaveAObject
+    case objectNotFound
+}
+
+
+

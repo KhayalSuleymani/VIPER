@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--View-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PLView" customModule="VIPER" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" rowHeight="150" id="F88-BB-VIM">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PLCell" rowHeight="150" id="F88-BB-VIM" customClass="PLCell" customModule="VIPER" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F88-BB-VIM" id="ENu-W0-Tk1">
@@ -59,8 +59,17 @@
                                                 <constraint firstItem="Ovi-aM-x0P" firstAttribute="top" secondItem="ENu-W0-Tk1" secondAttribute="top" constant="11" id="zE1-rK-5X0"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="customImageView" destination="Ovi-aM-x0P" id="Uyh-Hj-mGH"/>
+                                            <outlet property="subtitleLabel" destination="kBI-HL-k3Q" id="EA4-pH-UiY"/>
+                                            <outlet property="titleLabel" destination="iiu-S0-mzm" id="4Vf-O5-AWY"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="oaB-Jn-xrZ"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="0Qv-RO-IWD"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -73,15 +82,18 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Kpo-RJ-zeN"/>
+                    <connections>
+                        <outlet property="tableView" destination="Jcq-uA-Kbz" id="4YL-W6-aMx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="961" y="263"/>
+            <point key="canvasLocation" x="713" y="210"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JTj-Ls-8Hf">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eSS-h9-LQU" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PostsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="eSS-h9-LQU" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lLs-Tn-O0j">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -94,7 +106,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IhP-4j-fQB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="236" y="263"/>
+            <point key="canvasLocation" x="22" y="210"/>
         </scene>
     </scenes>
 </document>

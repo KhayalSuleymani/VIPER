@@ -7,18 +7,22 @@
 //
 
 import UIKit
+import AlamofireImage
+
 
 class PLCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    @IBOutlet weak var customImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func set (forPost post : PostModel ) {
+        self.selectionStyle = .none
+        titleLabel.text = post.title
+        subtitleLabel.text = post.title
+        let placeholderImage = UIImage(named : "placeholder")
+        let url = URL(string : post.thumbImageURL!)!
+        customImageView.af_setImage(withURL: url , placeholderImage : placeholderImage)
     }
 
 }
